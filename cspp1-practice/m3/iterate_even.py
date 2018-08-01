@@ -1,8 +1,4 @@
-""" iterate even while """
-N = 2
-while N < 12:
-    print(N)
-    N += 2
-
-
+""" iterate even for """
+for i in range(2, 12, 2):
+    print(i)
 print("Goodbye!")
