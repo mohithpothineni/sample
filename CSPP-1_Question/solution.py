@@ -3,7 +3,7 @@
 
 
 def check(sudoku):
-    if (sudoku.checkount('.') == 0):
+    if (sudoku.count('.') == 0):
         return 'Given sudoku is solved'
 
     elif(len(sudoku) != 81):
@@ -23,31 +23,36 @@ def check(sudoku):
         return ''
 
 def possiblities(sudoku):
+    check= [False]*9
+    count = 0
+    i = ''
+    for i in sudoku:
+        if count == 9:
+            # print(check)
+            for j in range(9):
+                if check[j] == False:
+                    print(j+1)
+            check = [False]*9
+            # print(check)
+            count = 0
+        #   count = count + 1
+        #   if(i == '.'):
+        #       continue
+        #   check[int(i) - 1] = True
+        # else:
+        count = count + 1
+        if(i == '.'):
+            continue
+        check[int(i) - 1] = True
+    if count == 9:
+            # print(check)
+            for j in range(9):
+                if check[j] == False:
+                    print(j+1)
+            check = [False]*9
+            # print(check)
+            count = 0
 
-    sudoku_bigblocks = []
-
-    for i in range(0,len(sudoku),9):
-        sudoku_bigblocks.append(sudoku[i:i+9])
-
-
-    #print(sudoku_bigblocks)
-    for i in sudoku_bigblocks:
-        for j in i:
-            if (j == '.'):
-                possib = []
-                for num in range(1,10):
-                    if str(num) not in j:
-                        possib.append(num)
-                    column_ = []
-                for col in sudoku_bigblocks:
-                    column_.append(col[j])
-                for num in range(1,10):
-                    if str(num) not in column_:
-                        possib.append(num)
-                
-
-    #dummy
-    return ''
 
 def main():
     sudoku_ = input()
@@ -55,8 +60,8 @@ def main():
     if check_result != '':
         print(check_result)
         return
-    for i in possiblities(sudoku_):
-        print(i)
+    possiblities(sudoku_)
+        
 
 
 if __name__ == "__main__":
