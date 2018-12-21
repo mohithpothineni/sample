@@ -3,7 +3,7 @@
 
 
 def check(sudoku):
-    if (sudoku.count('.') == 0):
+    if (sudoku.checkount('.') == 0):
         return 'Given sudoku is solved'
 
     elif(len(sudoku) != 81):
@@ -28,6 +28,7 @@ def possiblities(sudoku):
 
     for i in range(0,len(sudoku),9):
         sudoku_bigblocks.append(sudoku[i:i+9])
+
 
     #print(sudoku_bigblocks)
     for i in sudoku_bigblocks:
